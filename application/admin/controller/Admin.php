@@ -66,6 +66,7 @@ EXP 表达式查询，支持SQL语法
         if (Request::instance()->isPost())
         {
             echo "当前为 POST 请求";
+             echo "测试测试 Git更新";
             $data=input('post.');
             $adminModel = model('Admin');
 //            $res = db('admin')->insert($data);
