@@ -68,6 +68,7 @@ EXP 表达式查询，支持SQL语法
             echo "当前为 POST 请求";
             echo "测试测试 Git更新";
             echo "再次测试一波";
+            echo "再次再次测试一波";
             $data=input('post.');
             $adminModel = model('Admin');
 //            $res = db('admin')->insert($data);
