@@ -22,6 +22,7 @@ EXP 表达式查询，支持SQL语法
         and（默认）
         or
         */
+//lallalala ceshiceshi
 //          $res = model('admin')->select();
 
             /*$params = array();
