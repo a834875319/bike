@@ -159,8 +159,8 @@ return [
     'error_message'          => '页面错误！请稍后再试～',
     // 显示错误信息
     'show_error_msg'         => false,
-    // 异常处理handle类 留空使用 \think\exception\Handle
-    'exception_handle'       => '',
+    // 异常处理handle类 留空使用 \think\exception\Handle,我们可以自定义异常类
+//    'exception_handle'       => 'app\exceptions\handler\ExceptionHandler',
 
     // +----------------------------------------------------------------------
     // | 日志设置
@@ -168,7 +168,7 @@ return [
 
     'log'                    => [
         // 日志记录方式，内置 file socket 支持扩展
-        'type'  => 'File',
+        'type'  => 'test',
         // 日志保存目录
         'path'  => LOG_PATH,
         // 日志记录级别
