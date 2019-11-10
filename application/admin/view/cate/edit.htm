@@ -305,9 +305,9 @@ style.firebugResetStyles {
                         <a href="#">系统</a>
                     </li>
                                         <li>
-                        <a href="#">权限列表</a>
+                        <a href="__ENTRYPATH__/admin/cate/lst">菜单列表</a>
                     </li>
-                                        <li class="active">编辑权限</li>
+                                        <li class="active">编辑菜单</li>
                                         </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -324,67 +324,67 @@ style.firebugResetStyles {
             <div class="widget-body">
                 <div id="horizontal-form">
                     <form class="form-horizontal" role="form" action="" method="post">
+
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label no-padding-right">规则类型</label>
+                            <label for="catename" class="col-sm-2 control-label no-padding-right">栏目名称</label>
+                            <div class="col-sm-6">
+                                <input class="form-control"  placeholder="" id="catename" name="catename"  type="text" value="{$cateVO.catename}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="type" class="col-sm-2 control-label no-padding-right">栏目类型</label>
                             <div class="col-sm-6">
                                 <select name="type" style="width: 100%;">
-                                    <option value="1" selected="selected">按节点</option>
-                                    <option value="2">其他</option>
+                                    <option  value="1" >文章列表栏目</option>
+                                    <option  value="2" >单页栏目</option>
+                                    <option  value="3" >图片列表</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="title" class="col-sm-2 control-label no-padding-right">名称</label>
+                            <label for="keywords" class="col-sm-2 control-label no-padding-right">栏目关键词</label>
                             <div class="col-sm-6">
-                                <input class="form-control" id="title" placeholder="" name="title" value="文档" required="" type="text">
+                                <input class="form-control"  placeholder="" name="keywords"  type="text" value="{$cateVO.keywords}">
                             </div>
-                            <p class="help-block col-sm-4 red">* 必填</p>
                         </div>
-
                         <div class="form-group">
-                            <label for="pid" class="col-sm-2 control-label no-padding-right">上级菜单</label>
+                            <label for="desc" class="col-sm-2 control-label no-padding-right">栏目描述</label>
+                            <div class="col-sm-6">
+                                <input class="form-control"  placeholder="" name="desc"  type="text" value="{$cateVO.desc}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="content" class="col-sm-2 control-label no-padding-right">栏目内容</label>
+                            <div class="col-sm-6">
+                                <input class="form-control"  placeholder="" name="content"  type="text" value="{$cateVO.content}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pid" class="col-sm-2 control-label no-padding-right">上级栏目</label>
                             <div class="col-sm-6">
                                 <select name="pid" style="width: 100%;">
-                                    <option selected="selected" value="0">一级菜单</option>
-                                    <option value="1">控制面板</option>
-                                    <option value="19">文档</option>
-                                    <option value="20">——文章列表</option>
-                                    <option value="2">系统</option>
-                                    <option value="13">——用户管理</option>
-                                    <option value="3">——角色管理</option>
-                                    <option value="4">——权限列表</option>
+                                    <option  value="0">
+                                        顶级栏目
+                                    </option>
+                                    {volist name="cateres" id="cate"}
+                                    <option  value="{$cate.id}"  {if condition="$cate['id'] eq $cateVO['pid']"}selected='selected'{/if}>
+                                        {if condition="$cate['level'] neq 0"}|{/if}
+                                        <?php echo str_repeat('-', $cate['level']*8)?>
+                                        {$cate.catename}
+                                    </option>
+                                    {/volist}
+
                                 </select>
                             </div>
-                        </div>                        
-                        <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label no-padding-right">节点/规则标识</label>
-                            <div class="col-sm-6">
-                                <input class="form-control" id="name" placeholder="" name="name" type="text">
-                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="condition" class="col-sm-2 control-label no-padding-right">附加条件</label>
+                            <label for="sort" class="col-sm-2 control-label no-padding-right">排序值</label>
                             <div class="col-sm-6">
-                                <input class="form-control" id="condition" placeholder="" name="condition" type="text">
+                                <input class="form-control"  placeholder="" name="sort"  type="text" value="{$cateVO.sort}">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="sort" class="col-sm-2 control-label no-padding-right">排序</label>
-                            <div class="col-sm-6">
-                                <input class="form-control" id="sort" placeholder="" name="sort" value="2" type="text">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="is_show" class="col-sm-2 control-label no-padding-right">是否显示</label>
 
-                            <div class="col-xs-4">
-                                <label>
-                                    <input class="checkbox-slider slider-icon yesno" name="is_show" checked="checked" type="checkbox">
-                                    <span class="text"></span>
-                                </label>
-                            </div>                            
-                        </div>
-                        <input name="id" value="19" type="hidden">
+                        <input name="id" value="{$cateVO.id}" type="hidden">
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-default">保存信息</button>

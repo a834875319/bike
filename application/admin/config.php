@@ -21,5 +21,6 @@ return [
     '__PUBLIC__'=>'/public/',
     '__ROOT__' => '/',
     '__ADMIN__' => '/bike/public/static/admin',
+    '__ENTRYPATH__' => '/bike/public/index.php',
     ],
 ];

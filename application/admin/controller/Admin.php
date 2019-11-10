@@ -50,11 +50,10 @@ EXP 表达式查询，支持SQL语法
             }
 
         }*/
-        /*die();*/
         $params = input('get.');
-/*        $paramArr = input('get.');
-        dump($paramArr);
-        die();*/
+        /*        $paramArr = input('get.');
+                dump($paramArr);
+                die();*/
         $res = model('admin')->selectPage($params);
         $this->assign('adminRes',$res);
 

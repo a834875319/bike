@@ -10,7 +10,18 @@ class Admin extends Model
 {
     /*protected $pk = 'id';
     protected $table = 'bk_admin';*/
+    /**
+     * ->join("app_tool_ext_grant AS g ON g.tool_id = t.id", 'LEFT')
 
+     * $userRole = M("user_role");
+    $table = $userRole //->alias('ur')
+    ->join('smatrix_user ON smatrix_user.id = smatrix_user_role.userid')
+    ->join('smatrix_role ON smatrix_role.id = smatrix_user_role.roleid')
+    ->field('smatrix_user_role.*')->select();
+    dump($table);
+     * @param $data
+     * @return bool
+     */
     public function addAdmin($data)
     {
         if (empty($data) || !is_array($data)) {
