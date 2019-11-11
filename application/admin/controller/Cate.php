@@ -69,6 +69,7 @@ class Cate extends Controller
      */
     public function delete()
     {
-
+        echo '删除菜单啦啦啦啦啦';
+        die();
     }
 }
